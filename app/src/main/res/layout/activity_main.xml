@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_layout"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                card_view:cardBackgroundColor="@color/lightWhite"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="true"
+                card_view:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:textColor="@color/primaryText"
+                        android:textSize="28sp"
+                        tools:text="A Movie Title" />
+
+                    <TextView
+                        android:id="@+id/year"
+                        style="@style/DetailField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_calendar"
+                        android:drawableLeft="@drawable/ic_calendar"
+                        android:drawablePadding="16dp"
+                        android:minHeight="48dp"
+                        tools:text="ABCD" />
+
+                    <TextView
+                        android:id="@+id/homepage"
+                        style="@style/DetailField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:drawableStart="@drawable/ic_city"
+                        android:drawableLeft="@drawable/ic_city"
+                        android:drawablePadding="16dp"
+                        android:minHeight="48dp"
+                        android:visibility="gone"
+                        tools:text="http://www.somewebsite.com/" />
+
+                    <TextView
+                        android:id="@+id/companies"
+                        style="@style/DetailField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_language"
+                        android:drawableLeft="@drawable/ic_language"
+                        android:drawablePadding="16dp"
+                        android:minHeight="48dp"
+                        tools:text="Company 1, Company 2, Company 3, Company 4, Company 5" />
+
+                    <LinearLayout
+                        android:id="@+id/tagline_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/HeaderTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tagline" />
+
+                        <TextView
+                            android:id="@+id/tagline"
+                            style="@style/DetailField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="A simple tagline." />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/overview_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/HeaderTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/overview" />
+
+                        <TextView
+                            android:id="@+id/overviewText"
+                            android:textColor="@color/primaryText"
+                            android:text="camvnda nkja bka bfa bkafk bafkb fakb kfabk afb kfak bakf bk ba bkab a  abj bja"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            style="@style/HeaderTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Votes" />
+
+                        <TextView
+                            android:id="@+id/votes"
+                            style="@style/DetailField"
+                            android:text="camvnda nkja bka bfa bkafk bafkb fakb kfabk afb kfak bakf bk ba bkab a  abj bja"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            style="@style/HeaderTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Raing" />
+
+                        <TextView
+                            android:id="@+id/rating"
+                            style="@style/DetailField"
+                            android:text="camvnda nkja bka bfa bkafk bafkb fakb kfabk afb kfak bakf bk ba bkab a  abj bja"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/adult"
+                            style="@style/HeaderTextView"
+                            android:text="camvnda nkja bka bfa bkafk bafkb fakb kfabk afb kfak bakf bk ba bkab a  abj bja"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

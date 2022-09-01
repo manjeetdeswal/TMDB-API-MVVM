@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TMDB Api MVVM</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tab_text_1">Latest</string>
+    <string name="tab_text_2">UpComing</string>
+    <string name="tab_text_3">TopRated</string>
+    <string name="tab_text_4">Popluar</string>
+    <string name="tab_text_5">Now Playing</string>
+    <string name="tagline">tagline</string>
+    <string name="overview">overview</string>
+    <string name="similar_show">Others</string>
+</resources>
