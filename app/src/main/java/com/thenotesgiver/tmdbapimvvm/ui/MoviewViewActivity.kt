@@ -1,12 +1,7 @@
-package com.thenotesgiver.tmdbapimvvm
+package com.thenotesgiver.tmdbapimvvm.ui
 
-import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
@@ -18,10 +13,7 @@ import com.thenotesgiver.tmdbapimvvm.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.IOException
 import java.io.InputStream
-import java.net.HttpURLConnection
-import java.net.URL
 
 
 class MoviewViewActivity : AppCompatActivity() {
@@ -31,7 +23,7 @@ class MoviewViewActivity : AppCompatActivity() {
     var movie : MovieResult?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var list: ArrayList<MovieResult>
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -41,7 +33,11 @@ class MoviewViewActivity : AppCompatActivity() {
         binding.companies.text =movie!!.original_language
          binding.title.text =  movie!!.title
         binding.overviewText.text =  movie!!.overview
-        binding.adult.text =  "18+ = " + movie!!.adult
+        if (movie!!.adult!! ){
+            binding.adult.text = "18+ : Yes"
+        }else{
+            binding.adult.text = "18+ : No"
+        }
 
          binding.rating.text =  movie!!.vote_average.toString()
          binding.votes.text = movie!!.vote_count.toString()
@@ -77,13 +73,5 @@ class MoviewViewActivity : AppCompatActivity() {
             }
         }
     }
-    @Throws(IOException::class)
-    fun drawableFromUrl(url: String?): Drawable? {
-        val x: Bitmap
-        val connection: HttpURLConnection = URL(url).openConnection() as HttpURLConnection
-        connection.connect()
-        val input: InputStream = connection.getInputStream()
-        x = BitmapFactory.decodeStream(input)
-        return BitmapDrawable(Resources.getSystem(), x)
-    }
+
 }

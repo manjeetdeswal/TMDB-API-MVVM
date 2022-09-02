@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.thenotesgiver.tmdbapimvvm.data.model.MovieResult
 import com.thenotesgiver.tmdbapimvvm.databinding.ItemMovieBinding
+import com.thenotesgiver.tmdbapimvvm.ui.MoviewViewActivity
 
 class MovieAdapter (val list: List<MovieResult>) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
@@ -30,7 +31,7 @@ class MovieAdapter (val list: List<MovieResult>) : RecyclerView.Adapter<MovieAda
         Glide.with(holder.img.context).load("https://image.tmdb.org/t/p/w500" +movie.poster_path).into(holder.img)
 
         holder.itemView.setOnClickListener {
-            val  intent =Intent(holder.itemView.context,MoviewViewActivity::class.java)
+            val  intent =Intent(holder.itemView.context, MoviewViewActivity::class.java)
             intent.putExtra("movie", Gson().toJson(movie))
             holder.img.context.startActivity(intent)
         }
